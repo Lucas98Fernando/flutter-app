@@ -24,6 +24,14 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Container(
+                  width: 150,
+                  // Importando imagems do assets, declarados no arquivo .yaml
+                  child: Image.asset('assets/images/logo.png'),
+                ),
+                Container(
+                  height: 20,
+                ),
                 // Input
                 TextField(
                   // Recebendo os dados do inpute exibindo no console
@@ -46,24 +54,31 @@ class _LoginPageState extends State<LoginPage> {
                       border: OutlineInputBorder(), labelText: 'Senha'),
                 ),
                 SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    if (email == 'lucas98fernando@gmail.com' &&
-                        password == '12345') {
-                      /** 
-                      // Navegação manual entre telas
-                      // O pushReplacement remove a tela atual quando realiza a transição entre as telas, remove o botão de voltar no AppBar
-                      
-                      Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => HomePage())); 
-                      */
-                      // Navegação com rotas nomeadas
-                      Navigator.of(context).pushReplacementNamed('/home');
-                    } else {
-                      print('Login inválido !');
-                    }
-                  },
-                  child: Text('Entrar'),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (email == 'lucas98fernando@gmail.com' &&
+                          password == '12345') {
+                        /** 
+                        // Navegação manual entre telas
+                        // O pushReplacement remove a tela atual quando realiza a transição entre as telas, remove o botão de voltar no AppBar
+                        
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) => HomePage())); 
+                        */
+                        // Navegação com rotas nomeadas
+                        Navigator.of(context).pushReplacementNamed('/home');
+                      } else {
+                        print('Login inválido !');
+                      }
+                    },
+                    child: Text(
+                      'Entrar',
+                      textScaleFactor: 1.2,
+                    ),
+                  ),
                 )
               ],
             ),
