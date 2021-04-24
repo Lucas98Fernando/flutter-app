@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app_controller.dart';
 import 'home_page.dart';
+import 'login_page.dart';
 
 // Estado local com o Stateless, não realizada mudanças, é uma constante
 class AppWidget extends StatelessWidget {
@@ -14,7 +15,12 @@ class AppWidget extends StatelessWidget {
                 brightness: AppController.instance.isDarkTheme
                     ? Brightness.dark
                     : Brightness.light),
-            home: HomePage(),
+            initialRoute: '/',
+            // Rotas nomeadas ou rotas automáticas
+            routes: {
+              '/': (context) => LoginPage(),
+              '/home': (context) => HomePage(),
+            },
           );
         });
   }
