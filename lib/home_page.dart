@@ -18,9 +18,53 @@ class HomePageState extends State<HomePage> {
         // actions são as opções no lado direito da barra do app
         actions: [CustomSwitch()],
       ),
-      body: Center(
-        child: CustomSwitch(),
-      ),
+      body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          // Column e Row possui childrens, cada elemento children, herda as configurações do pai
+          // O MainAxisAlignment refere-se ao alinhamento geral
+          // O CrossAxisAlignment refere-se ao alinhamento de cada elemento individualmente
+
+          // O ListView serve para permitir o scroll na tela
+          //child: ListView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+
+            // O scrollDirection muda a direção do scroll do ListView, por padrão é na vertical
+            //scrollDirection: Axis.horizontal,
+            children: [
+              Text('Contador: $counter'),
+              Container(
+                height: 20,
+              ),
+              CustomSwitch(),
+              Container(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.black,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.black,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.black,
+                  )
+                ],
+              )
+            ],
+          )),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
