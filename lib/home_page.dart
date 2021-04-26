@@ -13,6 +13,48 @@ class HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      // O drawer é a navegação do app
+      drawer: Drawer(
+        child: Column(
+          children: [
+            // Imagem do perfil de usuário
+            UserAccountsDrawerHeader(
+                // Adicionando bordas arredoandas na imagem com o ClipRRect
+                currentAccountPicture: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.asset('assets/images/profile.jpg')),
+                accountName: Text('Lucas'),
+                accountEmail: Text('lucas98fernando@gmail.com')),
+            ListTile(
+              // O leading permite colocar widgets no lado esquerdo do menu
+              leading: Icon(Icons.home_outlined),
+              title: Text('Início'),
+              subtitle: Text('Tela de início'),
+              onTap: () {
+                print('Home');
+              },
+            ),
+            ListTile(
+              // O leading permite colocar widgets no lado esquerdo do menu
+              leading: Icon(Icons.people_alt_outlined),
+              title: Text('Sobre'),
+              subtitle: Text('Tela de sobre'),
+              onTap: () {
+                print('Sobre');
+              },
+            ),
+            ListTile(
+              // O leading permite colocar widgets no lado esquerdo do menu
+              leading: Icon(Icons.login_outlined),
+              title: Text('Sair'),
+              subtitle: Text('Finalizar sessão'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text('Home Page'),
         // actions são as opções no lado direito da barra do app
